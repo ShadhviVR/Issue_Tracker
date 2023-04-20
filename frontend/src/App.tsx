@@ -6,13 +6,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-
+import Landing from "./components/landing/scenes/landing";
 
 function AppRouter() {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
+      <Route path="/" element={<Landing />} />
 
       </>
     )
