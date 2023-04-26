@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Landing from "./components/landing/scenes/landing";
+import Login from "./components/login/login";
 
 function AppRouter() {
 
@@ -14,7 +15,7 @@ function AppRouter() {
     createRoutesFromElements(
       <>
       <Route path="/" element={<Landing />} />
-
+      <Route path="/login" element={<Login />} />
       </>
     )
   );

@@ -1,7 +1,6 @@
 import { SelectedPage } from "../../shared/types";
 import Logo from "../../../../assets/logo.png";
 import bug from "../../../../assets/bug.png";
-import video from "../../../../assets/video.mp4";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import giphy from "../../../../assets/giphy.gif";
@@ -82,7 +81,6 @@ const Home = ({ setSelectedPage }: Props) => {
           className="flex basis-3/5 justify-center md:z-10
               md:ml-40 md:mt-16 md:justify-items-end "
         >
-          {/*<video src={video} autoPlay loop muted /> */}
           <img alt="home-pageGraphic" src={bug} />
         </div>
       </motion.div>
