@@ -1,44 +1,43 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.example.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 
 @Entity
 public class Solution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long solutionId
-    private String solution;
-    Issues issue;
+    private long commentId;
 
-    public Solution(long solutionId, String solution, Issues issue) {
-        this.solutionId = solutionId;
-        this.solution = solution;
-        this.issue = issue;
+    private String comment ;
+
+
+    public Solution(long solutionId, String comment) {
+        this.commentId = solutionId;
+        this.comment = comment;
+
     }
 
-    public long getSolutionId() {
-        return solutionId;
+    public Solution() {
+
     }
 
-    public void setSolutionId(long solutionId) {
-        this.solutionId = solutionId;
+    public long getCommentId() {
+        return commentId;
     }
 
-    public String getSolution() {
-        return solution;
+    public void setCommentId(long commentId) {
+        this.commentId = commentId;
     }
 
-    public void setSolution(String solution) {
-        this.solution = solution;
+    public String getComment() {
+        return comment;
     }
 
-    public Issues getIssue() {
-        return issue;
-    }
-
-    public void setIssue(Issues issue) {
-        this.issue = issue;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

@@ -1,28 +1,42 @@
+package com.example.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Issues {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long issueId
-    private  long userID
+    private long issueId;
+    private  long userID;
     private String label;
     private String issue;
     private Date date;
-    User createdBy;
+
+
+   /* on spécifie que chaque instance de Issues peut avoir plusieurs instances de Solution
+   (relation OneToMany), que le champ solutions est mappé sur la propriété issue de la classe
+   Solution (grâce à l'attribut mappedBy), et que la suppression d'une instance de Issues
+   entraîne la suppression de toutes les instances de Solution associées
+   (grâce à l'attribut cascade avec la valeur CascadeType.ALL). L'attribut orphanRemoval est
+   également spécifié pour indiquer que les instances de Solution orphelines
+   (c'est-à-dire sans référence à une instance de Issues) doivent être supprimées.*/
+   @OneToMany(mappedBy = "issue", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Solution> solutions = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by_user_id", nullable = false)
+    private User createdBy;
 
     public Issues(long issueId, long userID, String label, String issue, Date date, User createdBy) {
         this.issueId = issueId;
@@ -30,10 +44,11 @@ public class Issues {
         this.label = label;
         this.issue = issue;
         this.date = date;
-
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "created_by_user_id", nullable = false)
         this.createdBy = createdBy;
+    }
+
+    public Issues() {
+
     }
 
     public long getIssueId() {
