@@ -7,21 +7,20 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Solution {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long commentId;
-
     private String comment ;
 
 
-    public Solution(long solutionId, String comment) {
-        this.commentId = solutionId;
+    public Comment(long commentId, String comment) {
+        this.commentId = commentId;
         this.comment = comment;
 
     }
 
-    public Solution() {
+    public Comment() {
 
     }
 

@@ -15,15 +15,14 @@ public class User {
     private long  userId;
     private String userName;
 
-    public User(long userId, String userName) {
-        this.userId = userId;
+    public User( String userName) {
+
         this.userName = userName;
     }
 
     public User() {
 
     }
-
 
     public long getUserId() {
         return userId;

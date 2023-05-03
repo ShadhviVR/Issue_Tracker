@@ -1,4 +1,5 @@
 package com.example.entity;
+import com.example.entity.Comment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class Issues {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long issueId;
-    private  long userID;
+
     private String label;
     private String issue;
     private Date date;
@@ -31,21 +32,21 @@ public class Issues {
    (grâce à l'attribut cascade avec la valeur CascadeType.ALL). L'attribut orphanRemoval est
    également spécifié pour indiquer que les instances de Solution orphelines
    (c'est-à-dire sans référence à une instance de Issues) doivent être supprimées.*/
-   @OneToMany(mappedBy = "issue", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Solution> solutions = new ArrayList<>();
+    @OneToMany(mappedBy = "issue", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comment = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by_user_id", nullable = false)
     private User createdBy;
 
-    public Issues(long issueId, long userID, String label, String issue, Date date, User createdBy) {
-        this.issueId = issueId;
-        this.userID = userID;
+    public Issues(  String label, String issue, Date date) {
+
         this.label = label;
         this.issue = issue;
         this.date = date;
-        this.createdBy = createdBy;
+      //  this.createdBy = createdBy;
     }
+
 
     public Issues() {
 
@@ -55,9 +56,7 @@ public class Issues {
         return issueId;
     }
 
-    public long getUserID() {
-        return userID;
-    }
+
 
     public String getLabel() {
         return label;
@@ -71,17 +70,12 @@ public class Issues {
         return date;
     }
 
-    public User getCreatedBy() {
-        return createdBy;
-    }
 
     public void setIssueId(long issueId) {
         this.issueId = issueId;
     }
 
-    public void setUserID(long userID) {
-        this.userID = userID;
-    }
+
 
     public void setLabel(String label) {
         this.label = label;
@@ -95,7 +89,5 @@ public class Issues {
         this.date = date;
     }
 
-    public void setCreatedBy(User createdBy) {
-        this.createdBy = createdBy;
-    }
+
 }
