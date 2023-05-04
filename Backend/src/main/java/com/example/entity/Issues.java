@@ -56,8 +56,6 @@ public class Issues {
         return issueId;
     }
 
-
-
     public String getLabel() {
         return label;
     }

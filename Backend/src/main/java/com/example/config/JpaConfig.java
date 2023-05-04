@@ -1,4 +1,4 @@
-package com.example.config;
+/*package com.example.config;
 import jakarta.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -50,4 +50,4 @@ public class JpaConfig {
     }
 
 
-}
+}*/
