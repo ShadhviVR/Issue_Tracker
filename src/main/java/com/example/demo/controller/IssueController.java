@@ -6,7 +6,7 @@ package com.example.demo.controller;
 import java.util.List;
 import com.example.demo.entity.Issue;
 import com.example.demo.repository.IssueRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 //@EnableJpaRepositories("com.example.demo.repository")
 public class IssueController {
     
-   @Autowired
+   //@Autowired
     private IssueRepository issueRepository;
 
     @GetMapping
