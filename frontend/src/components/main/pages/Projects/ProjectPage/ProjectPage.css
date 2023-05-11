@@ -1,0 +1,240 @@
+.project-page {
+    /* background-color: red; */
+    width: 100%;
+    min-height: calc(100vh - 180px);
+    padding: 0 50px 0 50px;
+}
+
+.main__head {
+    padding: 70px 0 50px 0;
+}
+
+.main__head-info {}
+
+/* ---------- */
+
+.main__head-info--top {
+    display: flex;
+    align-items: center;
+}
+
+.main__head-info--top .button--delete {
+    background-color: var(--color-dropdown-hover);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.main__head-info--top .button--delete i {
+    color: var(--color-gray-darkest);
+    font-size: 20px;
+    transition: .2s;
+}
+
+.main__head-info--top .button--delete:hover {
+    background-color: transparent;
+}
+
+.main__head-info--top .button--delete:hover i {
+    color: var(--color-warning);
+    font-size: 28px;
+}
+
+.delete__options-container {
+    height: 50px;
+    width: 110px;
+    display: flex;
+    position: relative;
+}
+
+.options-container__button {
+    background-color: var(--color-dropdown-hover);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+}
+
+.options-container__button:last-child {
+    margin-left: 10px;
+}
+
+.options-container__button i {
+    color: var(--color-gray-darkest);
+    font-size: 20px;
+    transition: .2s;
+}
+
+.options-container__button:hover {
+    background-color: transparent;
+}
+
+.options-container__button:hover i {
+    font-size: 28px;
+}
+
+.options-container__button:hover .options-container__button--close {
+    color: black;
+}
+
+.options-container__button:hover .options-container__button--delete {
+    color: var(--color-warning);
+}
+
+.options-container__bar--outer {
+    /* background-color: red; */
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transition: linear;
+}
+
+.options-container__bar--inner {
+    background-color: var(--color-warning);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    float: right;
+    animation-name: timeOutBar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes timeOutBar {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
+
+/* ----- */
+
+.head-info__title {
+    font-family: var(--font-primary);
+    font-size: 4.4rem;
+    font-weight: 600;
+    /* width: 100%; */
+    flex: 1;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.head-info__title::placeholder {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.head-info__date {
+    color: var(--color-gray-darkest);
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+
+
+
+/* Main Content */
+.main__content {
+    width: 100%;
+    /* height: 500px; */
+    display: flex;
+}
+
+.main__content--large {
+    width: calc(100vw - 400px);
+    overflow-x: scroll;
+    display: flex;
+}
+
+.main__content--small {
+    width: calc(100vw - 200px);
+    overflow-x: scroll;
+    display: flex;
+}
+
+.main__list {
+    /* background-color: yellow; */
+    /* height: 100px; */
+    margin-right: 30px;
+    flex: 1;
+}
+
+.main__list:last-child {
+    margin-right: 0;
+}
+
+.main__list-header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.main__list-header--icon {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+.main__list-header--text {}
+
+
+.list-header__title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.list-header__subtitle {
+    color: var(--color-gray-darkest);
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.list__add-btn {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    width: 100%;
+    padding: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__add-btn:hover {
+    background-color: black;
+}
+
+.list__add-btn--icon {
+    font-size: 1.8rem;
+    margin-right: 8px;
+}
+
+.list__add-btn--text {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.list {
+    /* background-color: yellow; */
+    width: 100%;
+    margin: 30px 0;
+    /* padding-bottom: 50px; */
+    overflow-y: scroll;
+}
+
+
+
+.project-page .empty-message-container {
+    height: 250px;
+}

@@ -1,0 +1,22 @@
+/* ASIDE */
+.aside {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Aside Button Container */
+.aside__button-container {
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+.aside__button-container--top {
+    margin-bottom: 50px;
+}
+
+.aside__button-container--bottom {}

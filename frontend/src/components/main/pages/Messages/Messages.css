@@ -1,0 +1,18 @@
+.messages {
+    width: 100%;
+    min-height: calc(100vh - 380px);
+    padding: 0 50px 50px 50px;
+}
+
+.messages .notification-container {
+    margin-top: 30px;
+}
+
+.messages__display {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.messages .empty-message-container {
+    margin-top: 50px;
+}
