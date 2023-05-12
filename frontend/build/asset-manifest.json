@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.03d73295.css",
+    "main.js": "/static/js/main.54c7f334.js",
+    "static/js/787.20c9de1b.chunk.js": "/static/js/787.20c9de1b.chunk.js",
+    "static/media/taskr-logo-small.png": "/static/media/taskr-logo-small.0291a21a39f7c9f3dda4.png",
+    "index.html": "/index.html",
+    "main.03d73295.css.map": "/static/css/main.03d73295.css.map",
+    "main.54c7f334.js.map": "/static/js/main.54c7f334.js.map",
+    "787.20c9de1b.chunk.js.map": "/static/js/787.20c9de1b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03d73295.css",
+    "static/js/main.54c7f334.js"
+  ]
+}
