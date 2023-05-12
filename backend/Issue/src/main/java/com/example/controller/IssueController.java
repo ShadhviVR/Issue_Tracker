@@ -95,19 +95,31 @@ public ResponseEntity<List<Issue>> searchIssues(
 ////UPDATE ISSUE 
 @PutMapping("/issues/{id}")
 public ResponseEntity<Issue> updateIssue(@PathVariable Long id, @RequestBody Issue issueUpdates) {
+    if (id == null) {
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    
     Optional<Issue> optionalIssue = issueRep.findById(id);
     if (optionalIssue.isPresent()) {
         Issue issue = optionalIssue.get();
-        issue.setTitle(issueUpdates.getTitle());
-        issue.setDescription(issueUpdates.getDescription());
-        issue.setLabel(issueUpdates.getLabel());
+        
+        // Vérifier que l'issue mise à jour contient des valeurs valides
+        if (issueUpdates.getTitle() != null) {
+            issue.setTitle(issueUpdates.getTitle());
+        }
+        if (issueUpdates.getDescription() != null) {
+            issue.setDescription(issueUpdates.getDescription());
+        }
+        if (issueUpdates.getLabel() != null) {
+            issue.setLabel(issueUpdates.getLabel());
+        }
+        
         issueRep.save(issue);
         return new ResponseEntity<>(issue, HttpStatus.OK);
     } else {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-
 
 private String generateRandomCode() {
         int length = 8; // Longueur du code généré

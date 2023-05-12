@@ -5,6 +5,7 @@
 package com.example.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,6 +27,7 @@ public class Comment {
     private Long id;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore // ignore this property during serialization
     @JoinColumn(name = "issue_id")
     private Issue issue;
     
