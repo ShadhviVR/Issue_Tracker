@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.example.controller;
 
 import com.example.dto.CommentRequest;
 import com.example.entity.Comment;
 import com.example.entity.Issue;
-import com.example.entity.User;
 import com.example.repository.CommentRepository;
 import com.example.repository.IssueRepository;
 import java.util.List;
@@ -54,20 +50,30 @@ public ResponseEntity<Comment> createComment(@PathVariable("id") Long id, @Reque
     if (optionalIssue.isPresent()) {
         Issue issue = optionalIssue.get();
         
+        // Vérifier que le contenu du commentaire n'est pas vide
+        if (commentRequest.getText() == null || commentRequest.getText().isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        
         // Créer un nouveau commentaire
         Comment comment = new Comment();
         comment.setIssue(issue);
         comment.setText(commentRequest.getText());
         
         // Enregistrer le commentaire dans la base de données
-        Comment createdComment = commentRep.save(comment);
-        
-        // Ajouter le commentaire à l'issue parente
-        issue.getComments().add(createdComment);
-        issueRep.save(issue);
-        
-        // Retourner une réponse avec le commentaire créé
-        return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
+        try {
+            Comment createdComment = commentRep.save(comment);
+            
+            // Ajouter le commentaire à l'issue parente
+            issue.getComments().add(createdComment);
+            issueRep.save(issue);
+            
+            // Retourner une réponse avec le commentaire créé
+            return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Retourner une réponse avec un code d'erreur approprié si l'enregistrement du commentaire échoue
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     } else {
         // Retourner une réponse avec un code d'erreur approprié si l'issue n'existe pas
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
